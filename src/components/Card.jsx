@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import "./Card.css";
 import Logo from "../assets/react.svg";
 import axios from "axios";
@@ -6,6 +6,7 @@ import axios from "axios";
 export default function Card() {
   const [score, setScore] = useState(0);
   const [img, setImg] = useState("");
+  const [text, setText] = useState("")
   const fetchImage = async () => {
     await axios.get("https://pokeapi.co/api/v2/pokemon/1")
     .then(response => setImg(response.data.sprites.front_default))
