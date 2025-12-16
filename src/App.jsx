@@ -7,10 +7,10 @@ import Card from './components/Card'
 function App() {
 
   return (
-    <>
-      <h1>Memory card game</h1>
+    <div className='app-container'>
       <Card/>
-    </>
+      <Card/>
+    </div>
   )
 }
 
