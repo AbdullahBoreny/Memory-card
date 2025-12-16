@@ -7,7 +7,7 @@ export default function Card() {
   const [score, setScore] = useState(0);
   const [img, setImg] = useState("");
   const fetchImage = async () => {
-    await axios.get("https://pokeapi.co/api/v2/pokemon/14")
+    await axios.get("https://pokeapi.co/api/v2/pokemon/1")
     .then(response => setImg(response.data.sprites.front_default))
   };
    
