@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import CardList from './components/CardList'
 import Card from './components/Card'
@@ -83,8 +81,9 @@ function App() {
 
   return (
     <div>
-      <h1>Score:{score}</h1>
-      <h1>maxScore:{maxScore}</h1>
+      <div className='how-to-play'>welcome to memory card  game, never click on a card twice !!</div>
+      <div className='score-info'>Score: {score}</div>
+      <div className='max-score-info'>Max Score: {maxScore}</div>
      <CardList
      setScore = {setScore}
      score ={score}

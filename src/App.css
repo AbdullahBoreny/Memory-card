@@ -1,10 +1,21 @@
 body {
-  background-color: rgb(218, 216, 143);
+  background-color: rgb(179, 143, 218);
 }
 .app-container {
- display: flex;
- align-items: center;
- justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 50px;
-  
 }
+.score-info,
+.max-score-info {
+  font-size: 50px;
+  font-family: "Jersey 10", sans-serif;
+}
+
+.how-to-play {
+  font-size: 50px;
+  color: white;
+  font-family: "Jersey 10", sans-serif;
+}
+

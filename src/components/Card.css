@@ -1,28 +1,28 @@
 .card-image {
     
-  width: 200px;
-  height: 200px;
-  margin: 5px;
+  max-width: 250px;
+  max-height: 250px;
+  background-color: white;
+  border-radius: 20px;
 }
 .card-container {
+  border-radius: 20px;
     cursor: pointer;
     display: flex;
     padding-bottom: 10px;
-    max-width: 400px;
-    max-height: 400px;
+    padding: 30px;
     border-radius: 5px;
     flex-direction: column;
+    background-color: rgb(135, 45, 45);
     align-items: center;
-    background-color: rgb(99, 99, 164);
     flex-wrap: wrap;
-    margin-right: 10px;
-    margin-bottom: 10px
+    margin-bottom: 30px;
 }
 .card-container:hover {
   opacity: 0.5;
 }
 .image-info {
-    font-size: 25px;
+    font-size: 50px;
     color: white;
     font-family: "Jersey 10", sans-serif;
   font-weight: 400;

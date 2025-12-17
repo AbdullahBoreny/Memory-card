@@ -12,7 +12,7 @@ export default function Card({ onClick, index }) {
         `https://pokeapi.co/api/v2/pokemon/${index}`
       );
 
-      setImg(response.data.sprites.front_default);
+      setImg(response.data.sprites.other["official-artwork"].front_default);
       setText(response.data.name);
     }
 
