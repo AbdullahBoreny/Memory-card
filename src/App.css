@@ -2,9 +2,9 @@ body {
   background-color: rgb(218, 216, 143);
 }
 .app-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+ display: flex;
+ align-items: center;
+ justify-content: center;
   padding: 50px;
   
 }

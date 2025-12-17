@@ -3,12 +3,15 @@ import "./CardList.css";
 import Card from "./Card";
 
 
-export default function CardList({cards}) {
+export default function CardList({handleCardClick,cards,score,setScore}) {
     return (
         <div className="cards-container">
         
             {cards.map((card) => {
-                return <Card index = {card.index}/>
+                return <Card
+                key={card.key}
+                onClick = {handleCardClick}
+                 index = {card.index}/>
             })}
         </div>
     )

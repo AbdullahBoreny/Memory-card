@@ -6,7 +6,7 @@ import CardList from './components/CardList'
 import Card from './components/Card'
 
 function App() {
-  const [cards, setCards] = useState([{
+  const cardsList = ([{
     index: 1,
     key :crypto.randomUUID()
   },
@@ -59,11 +59,31 @@ function App() {
     key :crypto.randomUUID()
   },
 ]);
-  const [maxScore, setMaxScore] = useState(0);
+  const [score, setScore] = useState(0);
+  const [indices, setIndices] = useState([])
+  const[maxScore,setMaxScore] = useState(0);
+  function handleCardClick(id) {
+    if(indices.includes(id)) {
+      setMaxScore(prev => Math.max(prev,score))
+      setScore(0);
+      setIndices([])
+      return;
+    }
+    setScore(score + 1);
+    
+    setIndices(prev => [...prev, id])
+       
+  }
 
   return (
-    <div className='app-container'>
-     <CardList cards = {cards}/>
+    <div>
+      <h1>Score:{score}</h1>
+      <h1>maxScore:{maxScore}</h1>
+     <CardList
+     setScore = {setScore}
+     score ={score}
+     handleCardClick = {handleCardClick}
+      cards = {cardsList}/>
 
    
        
