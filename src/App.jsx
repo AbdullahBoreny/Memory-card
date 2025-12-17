@@ -84,6 +84,7 @@ function App() {
       <div className='how-to-play'>welcome to memory card  game, never click on a card twice !!</div>
       <div className='score-info'>Score: {score}</div>
       <div className='max-score-info'>Max Score: {maxScore}</div>
+      <div className='how-to-play'>{score ===0 && maxScore > 0 ? "Bravo! try again" :""}</div>
      <CardList
      setScore = {setScore}
      score ={score}
