@@ -3,7 +3,7 @@ import "./CardList.css";
 import Card from "./Card";
 
 
-export default function CardList({handleCardClick,cards,score,setScore}) {
+export default function CardList({handleCardClick,cards}) {
     return (
         <div className="cards-container">
         

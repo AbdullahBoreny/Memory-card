@@ -3,24 +3,21 @@ import "./Card.css";
 import Logo from "../assets/react.svg";
 import axios from "axios";
 
-export default function Card({ onClick,index }) {
+export default function Card({ onClick, index }) {
   const [img, setImg] = useState("");
   const [text, setText] = useState("");
-  const fetchImage = async () => {
-    await axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${index}`)
-      .then((response) => setImg(response.data.sprites.front_default));
-  };
-  const fetchText = async () => {
-    await axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${index}`)
-      .then((response) => setText(response.data.name));
-  };
   useEffect(() => {
-    fetchImage();
-    fetchText();
-  },[]);
+    async function fetchPokemon() {
+      const response = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${index}`
+      );
 
+      setImg(response.data.sprites.front_default);
+      setText(response.data.name);
+    }
+
+    fetchPokemon();
+  }, [index]);
   function handleCardClick() {
     onClick(index);
   }

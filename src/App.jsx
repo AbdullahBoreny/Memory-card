@@ -59,19 +59,25 @@ function App() {
     key :crypto.randomUUID()
   },
 ]);
+  const [cards,setCards] = useState(cardsList);
   const [score, setScore] = useState(0);
   const [indices, setIndices] = useState([])
   const[maxScore,setMaxScore] = useState(0);
+  function shuffleCards() {
+    setCards(prev => [...prev].sort(() => Math.random() - 0.5));
+  }
   function handleCardClick(id) {
     if(indices.includes(id)) {
       setMaxScore(prev => Math.max(prev,score))
       setScore(0);
       setIndices([])
+      shuffleCards();
       return;
     }
-    setScore(score + 1);
+    setScore(prev => prev + 1);
     
     setIndices(prev => [...prev, id])
+    shuffleCards();
        
   }
 
@@ -83,7 +89,7 @@ function App() {
      setScore = {setScore}
      score ={score}
      handleCardClick = {handleCardClick}
-      cards = {cardsList}/>
+      cards = {cards}/>
 
    
        
