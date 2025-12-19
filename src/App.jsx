@@ -62,19 +62,19 @@ function App() {
   const [indices, setIndices] = useState([])
   const[maxScore,setMaxScore] = useState(0);
   function shuffleCards() {
-    setCards(prev => [...prev].sort(() => Math.random() - 0.5));
+    setCards(prevCards => [...prevCards].sort(() => Math.random() - 0.5));
   }
   function handleCardClick(id) {
     if(indices.includes(id)) {
-      setMaxScore(prev => Math.max(prev,score))
+      setMaxScore(prevScore => Math.max(prevScore,score))
       setScore(0);
       setIndices([])
       shuffleCards();
       return;
     }
-    setScore(prev => prev + 1);
+    setScore(prevScore => prevScore + 1);
     
-    setIndices(prev => [...prev, id])
+    setIndices(prevIndices => [...prevIndices, id])
     shuffleCards();
        
   }
