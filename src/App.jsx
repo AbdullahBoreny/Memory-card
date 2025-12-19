@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import CardList from './components/CardList'
 import Card from './components/Card'
+import axios from "axios";
+
 
 function App() {
   const cardsList = ([{
@@ -61,11 +63,30 @@ function App() {
   const [score, setScore] = useState(0);
   const [indices, setIndices] = useState([])
   const[maxScore,setMaxScore] = useState(0);
+  const [pokemonCache, setPokemonCache] = useState({});
+
+  async function getPokemon(index) {
+    if(pokemonCache[index]) return pokemonCache[index];
+    const response = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${index}`
+      );
+      const data = {
+        img:  response.data.sprites.other["official-artwork"].front_default,
+        text: response.data.name
+      };
+      setPokemonCache(prev => ({
+        ...prev,
+         [index] : data,
+      }
+    ))
+    return data;
+      
+  }
   function shuffleCards() {
     setCards(prevCards => [...prevCards].sort(() => Math.random() - 0.5));
   }
-  function handleCardClick(id) {
-    if(indices.includes(id)) {
+  function handleCardClick(index) {
+    if(indices.includes(index)) {
       setMaxScore(prevScore => Math.max(prevScore,score))
       setScore(0);
       setIndices([])
@@ -74,7 +95,7 @@ function App() {
     }
     setScore(prevScore => prevScore + 1);
     
-    setIndices(prevIndices => [...prevIndices, id])
+    setIndices(prevIndices => [...prevIndices, index])
     shuffleCards();
        
   }
@@ -89,6 +110,7 @@ function App() {
      setScore = {setScore}
      score ={score}
      handleCardClick = {handleCardClick}
+     getPokemon = {getPokemon}
       cards = {cards}/>
 
    

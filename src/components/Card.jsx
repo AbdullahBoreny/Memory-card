@@ -1,31 +1,29 @@
 import { useEffect, useState } from "react";
 import "./Card.css";
 import Logo from "../assets/react.svg";
-import axios from "axios";
 
-export default function Card({ onClick, index }) {
-  const [img, setImg] = useState("");
-  const [text, setText] = useState("");
+export default function Card({ getPokemon, onClick, index }) {
+   const [pokemon, setPokemon] = useState({});
+
   useEffect(() => {
-    async function fetchPokemon() {
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${index}`
-      );
-
-      setImg(response.data.sprites.other["official-artwork"].front_default);
-      setText(response.data.name);
+    let active = true;
+    getPokemon(index).then(data => {
+      if (active) setPokemon(data);
+    })
+    return () => {
+      active = false
     }
+  }, [index, getPokemon]);
 
-    fetchPokemon();
-  }, [index]);
+
   function handleCardClick() {
     onClick(index);
   }
 
   return (
     <div onClick={handleCardClick} className="card-container">
-      {img && <img src={img} className="card-image" />}
-      <div className="image-info">{text ? text : "?"}</div>
+      {pokemon.img && <img src={pokemon.img} className="card-image" />}
+      <div className="image-info">{pokemon.text ? pokemon.text : "?"}</div>
     </div>
   );
 }
