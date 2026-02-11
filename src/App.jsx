@@ -101,7 +101,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='app-container'>
       <div className='how-to-play'>welcome to memory card  game, never click on a card twice !!</div>
       <div className='score-info'>Score: {score}</div>
       <div className='max-score-info'>Max Score: {maxScore}</div>

@@ -1,21 +1,77 @@
+@import'./components/Card.css';
+@import './components/CardList.css';
 body {
   background-color: rgb(179, 143, 218);
+  width: 100vw;
+  height: 100vh;
 }
+
 .app-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 50px;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
 }
+
 .score-info,
 .max-score-info {
-  font-size: 50px;
+  font-size: 2rem;
   font-family: "Jersey 10", sans-serif;
 }
 
 .how-to-play {
-  font-size: 50px;
+  font-size: 3rem;
   color: white;
   font-family: "Jersey 10", sans-serif;
 }
+/* Media query for screens <= 750px */
+@media screen and (max-width: 500px) {
+  /* Container stays centered, fills screen */
+  .app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 
+  /* Cards container and individual cards scale */
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Card images shrink proportionally */
+  .card-image {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  /* Info text scales down */
+  .image-info {
+    font-size: 0rem !important;
+  }
+
+  .how-to-play {
+    font-size: 1.5rem;
+  }
+
+  .score-info,
+  .max-score-info {
+    font-size: 1.5rem;
+  }
+
+  /* Cards container (if using flex-wrap) */
+  .cards-container {
+    padding-right: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}

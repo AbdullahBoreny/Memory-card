@@ -1,11 +1,11 @@
 .card-image {
-    
   max-width: 250px;
   max-height: 250px;
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
-
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 .card-inner {
   transition: transform 0.6s;
@@ -15,33 +15,38 @@
 .card-container.flipped .card-inner {
   transform: rotateY(180deg);
 }
+.image-info {
+  font-size: 2rem;
+  color: white;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+
 .card-container {
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 
   border-radius: 20px;
-    cursor: pointer;
-    display: flex;
-    padding-bottom: 10px;
-    padding: 30px;
-    border-radius: 5px;
-    flex-direction: column;
-    background-color: rgb(135, 45, 45);
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+  cursor: pointer;
+  display: flex;
+  padding-bottom: 1rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  flex-direction: column;
+  background-color: rgb(135, 45, 45);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 .card-container:hover {
   transform: scale(1.05);
 }
 .card-container:hover .card-image {
   transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 8px 20px rgba(255,255,255,0.5);
-}
-.image-info {
-    font-size: 50px;
-    color: white;
-    font-family: "Jersey 10", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);
 }
